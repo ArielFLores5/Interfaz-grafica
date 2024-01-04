@@ -8,6 +8,8 @@
 #include <tarea.h>
 #include <QFile>
 #include <QCloseEvent>
+#include <QTableWidgetItem>
+#include <QBrush>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Tasky; }
@@ -18,13 +20,13 @@ class Tasky : public QMainWindow
     Q_OBJECT
 
 public:
+    int calcularDiferenciaDias(const QDate& fechaTarea);
     Tasky(QWidget *parent = nullptr);
     ~Tasky();
 
 private slots:
     void on_btnAgregar_clicked();
-    void closeEvent(QCloseEvent *event);
-
+    void on_tblTareas_itemDoubleClicked(QTableWidgetItem *item);
 
 private:
     Ui::Tasky *ui;
